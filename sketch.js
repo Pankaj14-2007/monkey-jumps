@@ -1,8 +1,8 @@
 var bananaImage,obstacleImage,backgroundImage,invisibleground;
 var obstaclesGroup,fruitsGroup,score,back,monkeyWalking,monkey;
 
-var gameState,PLAY,END;
-var score2;
+var gameState,PLAY,END,score2;
+
 
 function preload(){
  backgroundImage=loadImage("jungle.png");
@@ -22,11 +22,11 @@ function setup() {
   
   monkey = createSprite(50,180,20,50)
   monkey.addAnimation("running", monkeyWalking);
-  monkey.scale = 0.05;
- 
+  monkey.scale = 0.09;
+  
   score=0;
   score2=0;
- 
+  
   PLAY=1;
   END=0;
   gameState=PLAY;
@@ -55,7 +55,7 @@ function draw() {
  
   if(monkey.isTouching(obstaclesGroup)) {
   obstaclesGroup.destroyEach();
-  monkey.scale=0.010;
+  monkey.scale=0.08;
   score2=score2+1;
   }
   
@@ -64,9 +64,9 @@ function draw() {
     fruitsGroup.destroyEach();
   }
   
-  if (score2===2){
-  gameState=END;
+  if(score2===2){
   
+  gameState=END;
   }
   
   monkey.collide(invisibleGround);
@@ -76,6 +76,7 @@ function draw() {
   if (gameState===END){
   back.velocityX=0;
   monkey.velocityY=0;
+
   }
   
   
@@ -87,13 +88,12 @@ stroke("white");
 textSize(25);
 fill("white");
 text("score:"+ score,200,200);
-
- stroke("white");
+  
+  stroke("white");
 textSize(25);
 fill("white");
 text("score:"+ score2,200,250);
-score2.visible=false;
- 
+  
   switch(score){
     case 10: monkey.scale=0.12;
              break;      
