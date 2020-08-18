@@ -63,7 +63,10 @@ function draw() {
     fruitsGroup.destroyEach();
   }
   
+  if (score2===2){
+  gameState=END;
   
+  }
   
   monkey.collide(invisibleGround);
   spawnfruits();
@@ -88,6 +91,7 @@ text("score:"+ score,200,200);
 textSize(25);
 fill("white");
 text("score:"+ score2,200,250);
+score.visible=false;
  
   switch(score){
     case 10: monkey.scale=0.12;
