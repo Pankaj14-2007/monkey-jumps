@@ -2,7 +2,7 @@ var bananaImage,obstacleImage,backgroundImage,invisibleground;
 var obstaclesGroup,fruitsGroup,score,back,monkeyWalking,monkey;
 
 var gameState,PLAY,END;
-var counter=0;
+var score2;
 
 function preload(){
  backgroundImage=loadImage("jungle.png");
@@ -25,7 +25,8 @@ function setup() {
   monkey.scale = 0.05;
  
   score=0;
-  
+  score2=0;
+ 
   PLAY=1;
   END=0;
   gameState=PLAY;
@@ -91,7 +92,7 @@ text("score:"+ score,200,200);
 textSize(25);
 fill("white");
 text("score:"+ score2,200,250);
-score.visible=false;
+score2.visible=false;
  
   switch(score){
     case 10: monkey.scale=0.12;
